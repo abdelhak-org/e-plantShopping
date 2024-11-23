@@ -29,15 +29,7 @@ export const CartSlice = createSlice({
       }
     
     },
-    ////////
-    Increment:(state , action)=>{
-    const targtItem = state.items.find((item)=> item.name === action.payload.name);
-    targtItem += 1
-    },
-    Decrement :(  state , action )=>{
-      const targtItem = state.items.find((item)=> item.name === action.payload.name);
-      targtItem -= 1 
-    }
+ 
 
   },
 });
