@@ -58,7 +58,15 @@ body {
     align-items: center;
     justify-content: center;
 }
+.category-title {
+    width: fit-content;
+    text-align: center;
+    margin: 1rem auto;
+    padding: 0.1rem 2rem ;
+    border-top :1px  solid #333;
+    border-bottom :1px  solid #333
 
+}
 /* Product Card */
 .product-card {
     flex: 0 0 calc(33.33% - 20px); /* Adjust width for 3 cards per row with 20px gap */
