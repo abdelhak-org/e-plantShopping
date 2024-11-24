@@ -300,13 +300,16 @@ const handlePlantsClick = (e) => {
                    <div
                    style={{
                     position:'absolute',
-                    top:'30%'
+                    top:'20%',
+                    zIndex:0
                    }}
                    >
                    {cartItemsCount}
 
                    </div>
-                   <a href="#" onClick={(e) => handleCartClick(e)} style={styleA}>
+                   <a
+                  
+                   href="#" onClick={(e) => handleCartClick(e)} style={styleA}>
                     <h1 className='cart'     
                     > 
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" id="IconChangeColor" height="68"
@@ -319,7 +322,7 @@ const handlePlantsClick = (e) => {
                     </svg>
                    
                     </h1></a>
-                </div>          
+                    </div>          
                     </div>
               </div>
                 { !showCart? (
