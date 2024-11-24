@@ -258,7 +258,19 @@ const handlePlantsClick = (e) => {
      }));
   };
   /// increment cart items count
-  const cartItemsCount =  cartItems.reduce((count , item)=> count + item.quantity, 0)
+  const cartItemsCount =  cartItems.reduce((count , item)=> count + item.quantity, 0) 
+///////////////////
+     const isDisabled = (name)=> {
+        if( Object.keys(addedToCart).includes(name)){
+            return true
+
+        }
+        
+        return false
+     }
+      useEffect(()=>{
+
+      },[addedToCart])
     return (
         <div>
              <div className="navbar" style={styleObj}>
@@ -291,18 +303,31 @@ const handlePlantsClick = (e) => {
                 className='category-title'
                 ><div>{category.category}</div></h1>
                 <div className="product-list">
-                    {category.plants.map((plant, plantIndex) => (
+                    {category.plants.map((plant, plantIndex) => {
+                        
+                    return  (
                     <div className="product-card" key={plantIndex}>
                         <div className="product-title">{plant.name}</div>
                         <img className="product-image" src={plant.image} alt={plant.name} />
-                        {/*Similarly like the above plant.name show other details like description and cost*/}
                         <h4
                         className='product-price '
                         > {plant.cost} </h4>
                         <p>{plant.description}</p>
-                        <button  className="product-button" onClick={() => handleAddToCart(plant)}>Add to Cart</button>
+                        <button 
+                        // disable the button
+                         
+                           disabled= { isDisabled(plant.name) }
+                           style={{
+                            backgroundColor:  addedToCart[plant.name ]? 'gray' :'green'
+                           }}
+                        className="product-button" onClick={() => handleAddToCart(plant) }>Add to Cart</button>
                     </div>
-                    ))}
+
+
+
+                    )
+                    }
+                )}
                 </div>
             </div>
             ))
@@ -317,3 +342,4 @@ const handlePlantsClick = (e) => {
 }
 
 export default ProductList;
+
